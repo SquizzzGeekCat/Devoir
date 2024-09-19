@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      main {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+      }
+      datalist {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        writing-mode: horizontal-tb;
+        width: 150px;
+      }
+      #taille {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: whitesmoke;
+        border: solid rgb(128, 128, 128) 2px;
+        width: 30%;
+        border-radius: 15px;
+        padding: 35px;
+      }
+      fieldset {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-inline: 100px;
+        border: solid grey 2px;
+        border-radius: 15px;
+        box-shadow: 10px 8px 18px -2px rgba(119, 115, 115, 0.75);
+        margin-bottom: 20px;
+      }
+      button {
+        padding: 5px;
+        border: solid grey 2px;
+        border-radius: 15px;
+        color: black;
+        box-shadow: 10px 8px 18px -2px rgba(119, 115, 115, 0.75);
+      }
+      button[type="reset"] {
+        background-color: orangered;
+      }
+      button[type="submit"]:hover,
+      button[type="reset"]:hover {
+        background-color: lightgray;
+        color: black;
+        border: solid black 2px;
+      }
+      button[type="submit"] {
+        background-color: darkturquoise;
+      }
+      input[type="range"] {
+        accent-color: darkturquoise;
+      }
+    </style>
+    <title>Commande de tshirt</title>
+  </head>
+  <body>
+    <main>
+      <h1>Formulaire de Commande</h1>
+      <form action="commande.html" method="post">
+        <fieldset>
+          <legend>Client</legend>
+          <label for="identity">Nom et Prenom</label>
+          <input
+            type="text"
+            name="identity"
+            id="identity"
+            pattern="^[A-Z]*\s[A-Z][a-z]*$"
+          />
+          <label for="address">Adresse</label>
+          <input type="text" name="address" id="address" pattern="" />
+          <label for="codePostal">Code Postal</label>
+          <input
+            type="text"
+            name="codePostal"
+            id="codePostal"
+            pattern="^(0[1-9]|[1-8]\d|9[1-5])\d{3}$|^(971|972|973|974|975|976|984|985|986|987|988)\d{2}$|^20(2A|2B)\d{2}$"
+          />
+          <label for="pays">Pays</label>
+          <select name="pays" id="pays" disabled="disabled">
+            <option value="France" selected>France</option>
+          </select>
+        </fieldset>
+        <fieldset>
+          <legend>Commande</legend>
+          <label for="">Modèle:</label>
+          <select name="" id="" disabled="disabled">
+            <option value="">Road66</option>
+          </select>
+          <div id="taille">
+            <label for="taille">Taille</label>
+            <input type="range" id="taille" name="taille" list="markers" />
+            <datalist id="markers">
+              <option value="0">XS</option>
+              <option value="25">S</option>
+              <option value="50">M</option>
+              <option value="75">L</option>
+              <option value="100">XL</option>
+            </datalist>
+          </div>
+
+          <label for="qtt">Quantitées</label>
+          <input
+            type="number"
+            name="qtt"
+            id="qtt"
+            value="1"
+            min="1"
+            max="165"
+            step="3"
+          />
+        </fieldset>
+        <div class="button">
+          <button type="submit">Commander</button>
+          <button type="reset">Recommencer</button>
+        </div>
+      </form>
+    </main>
+  </body>
+</html>
