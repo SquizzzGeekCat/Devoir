@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>devine couleur</title>
+  </head>
+  <body>
+    <section>
+      <label for="couleur">Choisissez une couleur : </label>
+      <input type="text" id="couleur" name="couleur" />
+      <button>deviner</button>
+      <p id="message">Tenter votre chance !</p>
+
+      <p id="compteur">Nombre de tentatives : 0</p>
+    </section>
+    <!-- <script>
+      const input = document.querySelector("#couleur");
+      const button = document.querySelector("button");
+      let message = document.querySelector("#message");
+
+      button.addEventListener("click", () => {
+        let color = input.value.toLowerCase();
+        switch (color) {
+          case "bleu":
+          case "vert":
+          case "rouge":
+            message.textContent = "Vous avez gagné!";
+            break;
+          default:
+            message.textContent = "Nop! recommence bro!";
+            input.value = "";
+            break;
+        }
+      });
+    </script> -->
+    <script>
+      const input = document.querySelector("#couleur");
+      const button = document.querySelector("button");
+      let message = document.querySelector("#message");
+      let compteurElement = document.querySelector("#compteur");
+
+      let attempts = 0; // Compteur pour le nombre de tentatives
+
+      button.addEventListener("click", () => {
+        let correct = false;
+
+        // Boucle while pour vérifier la couleur jusqu'à une bonne réponse
+        while (!correct) {
+          let color = input.value.toLowerCase(); // Récupérer la valeur de l'input à chaque essai
+          attempts++; // Incrémenter le nombre de tentatives
+
+          switch (color) {
+            case "bleu":
+            case "vert":
+            case "rouge":
+              message.textContent =
+                "Vous avez gagné en " + attempts + " tentatives !";
+              correct = true; // Fin de la boucle si la réponse est correcte
+              break;
+            default:
+              message.textContent = "Nop! recommence bro!";
+              input.value = ""; // Réinitialiser l'input pour une nouvelle tentative
+              correct = true; // Fin de la boucle pour attendre une nouvelle saisie après un nouveau clic
+              break;
+          }
+
+          // Afficher le nombre de tentatives
+          compteurElement.textContent = "Nombre de tentatives : " + attempts;
+        }
+      });
+    </script>
+  </body>
+</html>

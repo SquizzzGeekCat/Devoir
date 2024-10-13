@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quantity</title>
+  </head>
+  <body>
+    <section>
+      <form action="">
+        <label for="quantity">Quantity</label>
+        <input type="text" name="quantity" id="quantity" value="0" />
+        <button id="more" type="button">+</button>
+        <button id="less" type="button">-</button>
+      </form>
+    </section>
+    <script>
+      const quantityInput = document.getElementById("quantity");
+      const moreButton = document.getElementById("more");
+      const lessButton = document.getElementById("less");
+
+      // Fonction pour ajouter
+      moreButton.addEventListener("click", (event) => {
+        event.preventDefault(); // Empêcher le rechargement de la page
+        let currentQuantity = parseInt(quantityInput.value);
+        quantityInput.value = currentQuantity + 1; // Incrémentation
+      });
+
+      // Fonction pour retirer
+      lessButton.addEventListener("click", (event) => {
+        event.preventDefault(); // Empêcher le rechargement de la page
+        let currentQuantity = parseInt(quantityInput.value);
+
+        if (currentQuantity > 0) {
+          quantityInput.value = currentQuantity - 1; // Décrémentation
+        }
+      });
+    </script>
+  </body>
+</html>

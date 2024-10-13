@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Liste_articles</title>
+  </head>
+  <body>
+    <section>
+      <h1>Liste des articles générés</h1>
+      <ul id="liste"></ul>
+    </section>
+    <script>
+      var i = 0;
+      for (var i = 0; i < 15; i++) {
+        let j = (Math.random() * 100 + 1).toFixed(2);
+        var article = document.createElement("li");
+        article.textContent = "Article " + (i + 1) + " -- Prix : " + j;
+        document.getElementById("liste").appendChild(article);
+      }
+    </script>
+  </body>
+</html>

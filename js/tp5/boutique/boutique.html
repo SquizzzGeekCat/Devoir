@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>boutique</title>
+  </head>
+  <body>
+    <header>
+      <img src="assets/logo.jpg" alt="" id="logoBoutique" />
+    </header>
+    <main>
+      <h1>Anna's vintage clothing Store !</h1>
+      <section>
+        <div class="card" id="dress">
+          <h2 class="titleCard">Robe de soirée</h2>
+          <img src="assets/robe.jpg" alt="" class="imgCard" />
+          <p class="prix"></p>
+          <div class="qts">
+            <label for="how_many_dress">Quantity:</label>
+            <input
+              type="text"
+              name="how_many_dress"
+              id="how_many_dress"
+              class="how_many"
+              value="0"
+            />
+            <button type="button" class="more">+</button>
+            <button type="button" class="less">-</button>
+          </div>
+        </div>
+
+        <div class="card" id="tshirt">
+          <h2 class="titleCard">Tshirt tendance</h2>
+          <img src="assets/tshirt.jpg" alt="" class="imgCard" />
+          <p class="prix"></p>
+          <div class="qts">
+            <label for="how_many_tshirt">Quantity:</label>
+            <input
+              type="text"
+              name="how_many_tshirt"
+              id="how_many_tshirt"
+              class="how_many"
+              value="0"
+            />
+            <button type="button" class="more">+</button>
+            <button type="button" class="less">-</button>
+          </div>
+        </div>
+
+        <div class="card" id="shoes">
+          <h2 class="titleCard">Chaussure pop art</h2>
+          <img src="assets/chaussure.jpg" alt="" class="imgCard" />
+          <p class="prix"></p>
+          <div class="qts">
+            <label for="how_many_shoes">Quantity:</label>
+            <input
+              type="text"
+              name="how_many_shoes"
+              id="how_many_shoes"
+              class="how_many"
+              value="0"
+            />
+            <button type="button" class="more">+</button>
+            <button type="button" class="less">-</button>
+          </div>
+        </div>
+      </section>
+      <hr />
+      <section id="panier">
+        <h2>Panier</h2>
+        <section>
+          <div id="commande">
+            <h2>Commande</h2>
+            <ul id="listPanier"></ul>
+          </div>
+          <div id="total">
+            <h2>Total de la commande</h2>
+            <p id="totalPrice">Total: <span>0</span> €</p>
+            <p id="ttc">Prix TTC = <span>0</span> €</p>
+          </div>
+          <div id="payement">
+            <h2>Mode de payement</h2>
+            <div id="type_carte">
+              <input type="radio" name="typeCard" id="visacard" />
+              <label for="">Visa Card</label
+              ><input type="radio" name="typeCard" id="mastercard" />
+              <label for="">Master card</label
+              ><input type="radio" name="typeCard" id="paypal" />
+              <label for="">Paypal</label>
+            </div>
+          </div>
+        </section>
+        <hr />
+        <button type="button">Valider votre commande</button>
+      </section>
+    </main>
+    <footer>
+      <p>© tous droit reserver a celui qui le reclame!</p>
+    </footer>
+  </body>
+</html>

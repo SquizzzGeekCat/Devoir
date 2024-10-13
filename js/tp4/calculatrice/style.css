@@ -1,0 +1,73 @@
+#calculatrice {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: solid 2px beige;
+  width: 25vw;
+}
+#affichage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#ecran {
+  width: 26em;
+  height: 5em;
+  background-color: antiquewhite;
+}
+#clavier {
+  display: grid;
+  margin-left: 2em;
+  gap: 2em;
+  grid-template-areas:
+    "numero    numero    operations"
+    "numero    numero    operations"
+    "numero    numero    operations"
+    "numero    numero    operations";
+}
+#numero {
+  display: grid;
+  grid-template-columns: repeat(3, 4em);
+  grid-template-rows: repeat(4, 4em);
+  gap: 1em;
+}
+#operations {
+  display: grid;
+  grid-template-columns: repeat(2, 4em);
+  grid-template-rows: repeat(5, 4em);
+  gap: 1em;
+}
+.chiffre,
+.ope {
+  font-size: 2em;
+  width: 2em;
+  height: 2em;
+  background-color: lightgray;
+  border: solid 0px transparent;
+  border-radius: 15px;
+  text-align: center;
+}
+#egale {
+  grid-area: 5/1/6/3;
+  width: auto;
+  height: 2em;
+  font-size: 2em;
+  background-color: lightgray;
+  border: solid 0px transparent;
+  border-radius: 15px;
+  text-align: center;
+}
+.zero {
+  grid-area: 4/1/5/4;
+  width: auto;
+  height: 2em;
+}
+#effacer {
+  font-size: 2em;
+  width: 2em;
+  height: 2em;
+  background-color: lightgray;
+  border: solid 0px transparent;
+  border-radius: 15px;
+  text-align: center;
+}
