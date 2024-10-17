@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Filtrage de Liste de Tâches</title>
+    <style>
+      .highlight {
+        background-color: yellow;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Ma Liste de Tâches</h1>
+    <input
+      type="text"
+      id="filterInput"
+      placeholder="Filtrer les tâches"
+      oninput="filterTasks()"
+    />
+    <ul id="taskList">
+      <li>Finir le projet JavaScript</li>
+      <li>Faire les courses</li>
+      <li>Appeler un ami</li>
+      <li>Préparer la présentation</li>
+      <li>Lire un chapitre du livre JavaScript</li>
+      <li>Faire de l'exercice</li>
+      <li>Planifier les vacances</li>
+      <li>Réviser le code du projet</li>
+    </ul>
+    <script>
+      function filterTasks() {
+        // 1. Récupérer la valeur du champ de filtre
+        let filtre = document.querySelector("#filterInput").value;
+        // 2. Récupérer tous les éléments de la liste de tâches
+        let tasks = document.querySelectorAll("#taskList li");
+        // 3. Parcourir les éléments de la liste de tâches
+        tasks.forEach((task) => {
+          // 4. Si le texte de la tâche contient la valeur du filtre
+          if (task.textContent.toLowerCase().includes(filtre.toLowerCase())) {
+            // 5. Ajouter la classe 'highlight' à la tâche
+            task.classList.add("highlight");
+          } else {
+            // 6. Retirer la classe 'highlight' à la tâche
+            task.classList.remove("highlight");
+          }
+        });
+      }
+    </script>
+  </body>
+</html>

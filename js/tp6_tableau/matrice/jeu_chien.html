@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      section {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: repeat(4, 1fr);
+        gap: 5px;
+      }
+      button {
+        height: 30px;
+        border: none;
+        background-color: #ccc;
+        cursor: pointer;
+        font-size: 18px;
+        text-align: center;
+        line-height: 30px;
+        color: #fff;
+      }
+    </style>
+    <title>Jeu demineur</title>
+  </head>
+  <body>
+    <section></section>
+    <script>
+      var matrix = [];
+
+      const section = document.querySelector("section");
+
+      // Initialisation de la grille
+      function initGrid(size) {
+        section.innerHTML = ""; // Vide la section avant d'ajouter les nouveaux boutons
+        for (var i = 0; i < size; i++) {
+          matrix[i] = [];
+          for (var j = 0; j < size; j++) {
+            matrix[i][j] = {
+              value: 1, // 1 pour une case vide
+              isRevealed: false,
+            };
+            let btn = document.createElement("button");
+            btn.textContent = matrix[i][j].isRevealed ? "*" : ""; // Affiche le contenu si révélé
+            btn.dataset.line = i;
+            btn.dataset.col = j;
+            btn.value = matrix[i][j].value;
+            btn.addEventListener("click", reveal);
+            section.appendChild(btn);
+          }
+        }
+        placeMine(3); // Place 3 mines aléatoires
+        updateGridDisplay(); // Met à jour l'affichage pour montrer les mines si révélées
+      }
+
+      // Placement des mines aléatoirement dans la grille
+      function placeMine(limite) {
+        let minesPlaced = 0;
+        while (minesPlaced < limite) {
+          const line = Math.floor(Math.random() * matrix.length);
+          const col = Math.floor(Math.random() * matrix[0].length);
+          if (matrix[line][col].value !== "Dog") {
+            // Si ce n'est pas déjà une mine
+            matrix[line][col].value = "Dog"; // "M" pour mine
+            minesPlaced++;
+          }
+        }
+      }
+
+      // Met à jour l'affichage après le placement des mines
+      function updateGridDisplay() {
+        const buttons = section.querySelectorAll("button");
+        buttons.forEach((btn) => {
+          const line = btn.dataset.line;
+          const col = btn.dataset.col;
+          btn.value = matrix[line][col].value; // Mets à jour la valeur du bouton
+          btn.textContent = matrix[line][col].isRevealed
+            ? matrix[line][col].value
+            : ""; // Affiche la mine ou vide
+        });
+      }
+
+      // Révéler une case
+      function reveal() {
+        let btnValue = this.value;
+
+        if (btnValue == 1) {
+          this.style.backgroundColor = "red"; // Change la couleur pour indiquer une case sans mine
+        } else {
+          this.style.backgroundColor = "green"; // Change la couleur pour une case mine
+        }
+
+        this.disabled = true; // Désactive le bouton une fois cliqué
+
+        const line = this.dataset.line;
+        const col = this.dataset.col;
+        matrix[line][col].isRevealed = true;
+        updateGridDisplay();
+      }
+
+      // Initialisation avec une grille 4x4
+      initGrid(4);
+    </script>
+  </body>
+</html>

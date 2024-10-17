@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>exo login js</title>
+  </head>
+  <body>
+    <p>Username: <input type="text" id="username" value="" /></p>
+    <p>Password: <input type="password" id="pwd" value="" /></p>
+    <input type="button" value="Login" onclick="checkLogin()" />
+    <script type="text/javascript">
+      const buttonConnect = document.querySelector('button[value="Login"]');
+      buttonConnect.addEventListener("click", checkLogin);
+      function checkLogin() {
+        const usernameObj = document.getElementById("username");
+        const pwdObj = document.getElementById("pwd");
+        if (usernameObj.value == "") {
+          alert("Please input username !");
+          return;
+        }
+        if (pwdObj.value == "") {
+          alert("Please input password !");
+          return;
+        }
+        alert("login successfull !");
+      }
+    </script>
+  </body>
+</html>

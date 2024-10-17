@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Génération Aléatoire</title>
+  </head>
+  <body>
+    <div></div>
+    <button type="button" onclick="randomMNumberMatrix(3)">
+      changer les nombres
+    </button>
+    <br />
+    <hr />
+    <label for="choix"
+      >donner moi un numbre pour la création de la matrice</label
+    >
+    <input type="text" name="choix" id="choix" />
+    <button type="button" onclick="change_size_and_full()">Valider</button
+    ><br />
+    <script>
+      const div = document.querySelector("div");
+      function createMatrix() {
+        let matrix = [];
+        for (let i = 0; i < 3; i++) {
+          matrix[i] = [];
+          for (let j = 0; j < 3; j++) {
+            matrix[i][j] = 0;
+          }
+        }
+
+        div.innerHTML = matrix;
+      }
+      createMatrix(0, 3);
+
+      function randomMNumberMatrix(size) {
+        let matrix = [];
+        for (let i = 0; i < size; i++) {
+          matrix[i] = [];
+          for (let j = 0; j < size; j++) {
+            matrix[i][j] = Math.floor(Math.random() * 10);
+          }
+        }
+        div.innerHTML = matrix;
+      }
+
+      function change_size_and_full() {
+        let choix = document.querySelector("#choix").value;
+        let size = parseInt(choix);
+
+        if (isNaN(size) || size < 2 || size > 10) {
+          alert("Veuillez saisir un nombre entre 1 et 10");
+          return;
+        }
+        randomMNumberMatrix(size);
+      }
+    </script>
+  </body>
+</html>

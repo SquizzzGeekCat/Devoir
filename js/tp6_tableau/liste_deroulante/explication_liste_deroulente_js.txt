@@ -1,0 +1,23 @@
+Explication détaillée :
+Données :
+
+categories contient les noms des catégories.
+products est un tableau à deux dimensions où chaque sous-tableau correspond aux produits d'une catégorie.
+Initialisation (window.onload) :
+
+Lors du chargement de la page, la liste déroulante des catégories (category) est remplie avec les options de categories via une boucle forEach.
+Fonction updateProducts(categorySelect) :
+
+Cette fonction est déclenchée chaque fois que l'utilisateur change de catégorie dans la liste déroulante.
+Elle récupère l'index de la catégorie sélectionnée et utilise cet index pour afficher les produits correspondants.
+Ensuite, elle vide la liste des produits actuelle (product et productList), puis remplit la nouvelle liste avec les produits associés à la catégorie sélectionnée.
+Fonction filterProducts() :
+
+Cette fonction récupère la valeur saisie dans le champ de filtre (filterInput).
+Elle filtre les produits de la catégorie sélectionnée pour ne conserver que ceux dont le nom contient la chaîne de caractères entrée par l'utilisateur (sans distinction de majuscule/minuscule grâce à toLowerCase()).
+Les produits filtrés sont ensuite affichés dans la liste.
+Fonction displayProductList(productsToDisplay) :
+
+Cette fonction est appelée à la fois lors de la mise à jour des produits et après le filtrage.
+Elle vide la liste actuelle des produits (productList) et crée un élément <li> pour chaque produit à afficher.
+Avec cette structure, tu peux facilement mettre à jour et filtrer les produits en fonction de la catégorie sélectionnée et de l'entrée de filtre.

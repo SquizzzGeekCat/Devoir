@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Connexion et Inscription</title>
+    <style>
+      .error {
+        color: red;
+      }
+      .success {
+        color: green;
+      }
+      .weak {
+        color: red;
+      }
+      .medium {
+        color: orange;
+      }
+      .strong {
+        color: green;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Connexion</h2>
+    <p>Username: <input type="text" id="username" value="" /></p>
+    <p>Password: <input type="password" id="pwd" value="" /></p>
+    <input type="button" value="Login" onclick="checkLogin()" />
+
+    <h2>Inscription</h2>
+    <p>
+      Username: <input type="text" id="newUsername" />
+      <span id="usernameStatus"></span>
+    </p>
+    <p>
+      Password: <input type="password" id="newPwd" />
+      <span id="passwordStrength"></span>
+    </p>
+    <p>
+      Confirm : <input type="password" id="confirmPwd" />
+      <span id="passwordMatch"></span>
+    </p>
+    <input type="button" value="S'inscrire" id="registerButton" />
+
+    <h2>Liste des Utilisateurs</h2>
+    <ul id="userList"></ul>
+
+    <script>
+      // constantes
+      const inputUsername = document.querySelector("#newUsername");
+      const spanUsername = document.getElementById("usernameStatus");
+      const inputPassword = document.querySelector("#newPwd");
+      const inputConfirmPwd = document.querySelector("#confirmPwd");
+      const spanPasswordStrength = document.getElementById("passwordStrength");
+      const spanPasswordMatch = document.getElementById("passwordMatch");
+      const userList = document.getElementById("userList");
+      const registerButton = document.getElementById("registerButton");
+      const users = ["harry", "james", "lily"];
+
+      // Vérification du username
+      function checkInputUsername() {
+        if (inputUsername.value) {
+          if (inputUsername.value.length >= 4) {
+            users.forEach(function (user) {
+              if (user === inputUsername.value) {
+                spanUsername.textContent = "Username déjà pris";
+                spanUsername.classList.remove("success");
+                spanUsername.classList.add("error");
+                return;
+              }
+            });
+          } else {
+            spanUsername.textContent = "Username ok !";
+            spanUsername.classList.remove("error");
+            spanUsername.classList.add("success");
+          }
+        }
+      }
+
+      // Vérification de la force du mot de passe
+      function checkPasswordStrength() {
+        const passwordValue = inputPassword.value;
+        const length = passwordValue.length;
+
+        spanPasswordStrength.classList.remove(
+          "weak",
+          "medium",
+          "strong",
+          "error"
+        );
+
+        if (passwordValue === "") {
+          spanPasswordStrength.textContent = "Mot de passe vide";
+          spanPasswordStrength.classList.add("error");
+        } else if (length < 6) {
+          spanPasswordStrength.textContent = "Mot de passe faible";
+          spanPasswordStrength.classList.add("weak");
+        } else if (
+          /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{10,18}$/.test(
+            passwordValue
+          )
+        ) {
+          spanPasswordStrength.textContent = "Mot de passe fort";
+          spanPasswordStrength.classList.add("strong");
+        } else if (length >= 6 && length <= 10) {
+          spanPasswordStrength.textContent = "Mot de passe moyen";
+          spanPasswordStrength.classList.add("medium");
+        }
+      }
+
+      // Vérification de la correspondance des mots de passe
+      function checkPasswordMatch() {
+        if (inputPassword.value === inputConfirmPwd.value) {
+          spanPasswordMatch.textContent = "Les mots de passe sont identiques";
+          spanPasswordMatch.classList.remove("error");
+          spanPasswordMatch.classList.add("success");
+        } else {
+          spanPasswordMatch.textContent =
+            "Les mots de passe ne sont pas identiques";
+          spanPasswordMatch.classList.remove("success");
+          spanPasswordMatch.classList.add("error");
+        }
+      }
+
+      // Vérification de l'inscription
+      function registerUser() {
+        if (
+          inputUsername.value &&
+          inputPassword.value &&
+          inputConfirmPwd.value === inputPassword.value
+        ) {
+          userList.innerHTML += `<li>${inputUsername.value}</li>`;
+          alert("Inscription réussie!");
+          users.push(inputUsername.value);
+
+          // Réinitialiser les champs
+          inputUsername.value = "";
+          inputPassword.value = "";
+          inputConfirmPwd.value = "";
+          spanUsername.textContent = "";
+          spanPasswordStrength.textContent = "";
+          spanPasswordMatch.textContent = "";
+        } else {
+          alert("Veuillez remplir tous les champs correctement");
+        }
+      }
+
+      // Initialisation des listeners
+      function init() {
+        inputUsername.addEventListener("input", checkInputUsername);
+        inputPassword.addEventListener("input", checkPasswordStrength);
+        inputConfirmPwd.addEventListener("input", checkPasswordMatch);
+        registerButton.addEventListener("click", registerUser);
+      }
+
+      // Appel à l'initialisation quand la page est chargée
+      window.addEventListener("load", init);
+    </script>
+  </body>
+</html>

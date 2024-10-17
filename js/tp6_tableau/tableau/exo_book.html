@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>exo book</title>
+  </head>
+  <body>
+    <table width="400" border="1">
+      <tr>
+        <td>
+          <input type="checkbox" onclick="checkAll(this)" />
+          Select All
+        </td>
+        <td>Book Name</td>
+      </tr>
+      <tr>
+        <td><input type="checkbox" name="book" /></td>
+        <td>Easy Learning JavaScript</td>
+      </tr>
+      <tr>
+        <td><input type="checkbox" name="book" /></td>
+        <td>Easy Learning Python</td>
+      </tr>
+    </table>
+    <script language="JavaScript">
+      const bookInputs = document.getElementsByName("book");
+      function checkAll(element) {
+        bookInputs.forEach((book) => {
+          book.checked = true;
+        });
+      }
+    </script>
+  </body>
+</html>

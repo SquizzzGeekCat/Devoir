@@ -12,61 +12,7 @@
     </header>
     <main>
       <h1>Anna's vintage clothing Store !</h1>
-      <section>
-        <div class="card" id="dress">
-          <h2 class="titleCard">Robe de soirée</h2>
-          <img src="assets/robe.jpg" alt="" class="imgCard" />
-          <p class="prix"></p>
-          <div class="qts">
-            <label for="how_many_dress">Quantity:</label>
-            <input
-              type="text"
-              name="how_many_dress"
-              id="how_many_dress"
-              class="how_many"
-              value="0"
-            />
-            <button type="button" class="more">+</button>
-            <button type="button" class="less">-</button>
-          </div>
-        </div>
-
-        <div class="card" id="tshirt">
-          <h2 class="titleCard">Tshirt tendance</h2>
-          <img src="assets/tshirt.jpg" alt="" class="imgCard" />
-          <p class="prix"></p>
-          <div class="qts">
-            <label for="how_many_tshirt">Quantity:</label>
-            <input
-              type="text"
-              name="how_many_tshirt"
-              id="how_many_tshirt"
-              class="how_many"
-              value="0"
-            />
-            <button type="button" class="more">+</button>
-            <button type="button" class="less">-</button>
-          </div>
-        </div>
-
-        <div class="card" id="shoes">
-          <h2 class="titleCard">Chaussure pop art</h2>
-          <img src="assets/chaussure.jpg" alt="" class="imgCard" />
-          <p class="prix"></p>
-          <div class="qts">
-            <label for="how_many_shoes">Quantity:</label>
-            <input
-              type="text"
-              name="how_many_shoes"
-              id="how_many_shoes"
-              class="how_many"
-              value="0"
-            />
-            <button type="button" class="more">+</button>
-            <button type="button" class="less">-</button>
-          </div>
-        </div>
-      </section>
+      <section id="sec_articles"></section>
       <hr />
       <section id="panier">
         <h2>Panier</h2>
@@ -77,8 +23,8 @@
           </div>
           <div id="total">
             <h2>Total de la commande</h2>
-            <p id="totalPrice">Total: <span>0</span> €</p>
-            <p id="ttc">Prix TTC = <span>0</span> €</p>
+            <p id="totalPrice">Total: <span></span> €</p>
+            <p id="ttc">Prix TTC = <span></span> €</p>
           </div>
           <div id="payement">
             <h2>Mode de payement</h2>
@@ -99,5 +45,57 @@
     <footer>
       <p>© tous droit reserver a celui qui le reclame!</p>
     </footer>
+    <script src="main.js"></script>
+    <script>
+      const dress = new Article(
+        1,
+        "Robe de soirée",
+        "dress.jpg",
+        35,
+        "une super robe de soirée pour aller danser",
+        0
+      );
+      const shoes = new Article(
+        2,
+        "Chaussure pop art",
+        "shoes.jpg",
+        20,
+        "une super paire de chaussure custom",
+        0
+      );
+      const tshirt = new Article(
+        3,
+        "Tshirt tendance",
+        "tshirt.jpg",
+        15,
+        "un tshirt cool",
+        0
+      );
+
+      const articles = [dress, shoes, tshirt];
+
+      // Sélectionner le conteneur où les articles seront ajoutés
+      const productContainer = document.getElementById("sec_articles");
+
+      // Créer et afficher les cartes pour chaque article
+      articles.forEach((article) => {
+        article.createCard(productContainer);
+      });
+
+      const totalSsTva = document.getElementById("totalPrice").innerText;
+      const tva = 0.2;
+      const Ttc = document.getElementById("ttc").innerText;
+
+      function updateTotaux(showTt, showTTC, tva, listeArticles) {
+        listeArticles.forEach((article) => {
+          let totalPrice = article.qts * article.prix;
+          let ttc = totalPrice * (1 + tva / 100);
+          showTt.textContent =
+            parseFloat(showTt.textContent) + totalPrice.toFixed(2);
+          showTTC.textContent =
+            parseFloat(showTTC.textContent) + ttc.toFixed(2);
+        });
+      }
+    </script>
   </body>
 </html>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Sélection de Produits</title>
+  </head>
+  <body>
+    <h1>Sélection de Produits</h1>
+
+    <!-- Liste déroulante des catégories -->
+    <select id="category" onchange="updateProducts(this)">
+      <option value="">--Choisissez une catégorie--</option>
+    </select>
+
+    <!-- Liste déroulante des produits -->
+    <select id="product"></select>
+
+    <br /><br />
+
+    <!-- Champ de saisie pour filtrer les produits -->
+    <input
+      type="text"
+      id="filterInput"
+      placeholder="Filtrer les produits"
+      oninput="filterProducts()"
+    />
+
+    <!-- Liste des produits -->
+    <ul id="productList"></ul>
+
+    <script>
+      // Données : catégories et produits
+      const categories = ["Électronique", "Vêtements", "Alimentation"];
+      const products = [
+        ["Smartphone", "Ordinateur portable", "Tablette", "Écouteurs"],
+        ["T-shirt", "Pantalon", "Chaussures", "Veste"],
+        ["Fruits", "Légumes", "Viandes", "Produits laitiers"],
+      ];
+
+      // Initialisation : Remplir la liste déroulante des catégories
+      window.onload = function () {
+        const categorySelect = document.getElementById("category");
+        categories.forEach((category, index) => {
+          const option = document.createElement("option");
+          option.value = index;
+          option.text = category;
+          categorySelect.appendChild(option);
+        });
+      };
+
+      // Mettre à jour les produits en fonction de la catégorie sélectionnée
+      function updateProducts(categorySelect) {
+        const productSelect = document.getElementById("product");
+        const productList = document.getElementById("productList");
+        const categoryIndex = categorySelect.value;
+
+        // Vider les listes actuelles
+        productSelect.innerHTML = "";
+        productList.innerHTML = "";
+
+        if (categoryIndex !== "") {
+          // Remplir la liste déroulante avec les produits correspondants
+          products[categoryIndex].forEach((product) => {
+            const option = document.createElement("option");
+            option.value = product;
+            option.text = product;
+            productSelect.appendChild(option);
+          });
+
+          // Afficher la liste des produits
+          displayProductList(products[categoryIndex]);
+        }
+      }
+
+      // Filtrer les produits selon la saisie dans le champ de filtre
+      function filterProducts() {
+        const filterInput = document
+          .getElementById("filterInput")
+          .value.toLowerCase();
+        const categorySelect = document.getElementById("category");
+        const categoryIndex = categorySelect.value;
+
+        if (categoryIndex !== "") {
+          // Filtrer les produits de la catégorie sélectionnée
+          const filteredProducts = products[categoryIndex].filter((product) =>
+            product.toLowerCase().includes(filterInput)
+          );
+
+          // Afficher les produits filtrés
+          displayProductList(filteredProducts);
+        }
+      }
+
+      // Afficher une liste de produits
+      function displayProductList(productsToDisplay) {
+        const productList = document.getElementById("productList");
+
+        // Vider la liste actuelle
+        productList.innerHTML = "";
+
+        // Créer et ajouter un élément <li> pour chaque produit
+        productsToDisplay.forEach((product) => {
+          const li = document.createElement("li");
+          li.textContent = product;
+          productList.appendChild(li);
+        });
+      }
+    </script>
+  </body>
+</html>
