@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>formulaire adresse</title>
+  </head>
+  <body>
+    <h1>Formulaire de livraison</h1>
+    <section>
+      <form action="sessionstorage2.html" method="get">
+        <h2>Entré votre adresse de livraison</h2>
+        <div>
+          <label for="name">Nom</label>
+          <input
+            type="text"
+            name="name"
+            id="name"
+            placeholder="Jean Dujardin"
+          />
+        </div>
+        <div>
+          <label for="numVoie">n Voie</label>
+          <input type="number" name="numVoie" id="numVoie" min="1" max="999" />
+        </div>
+        <div>
+          <label for="rue">rue</label>
+          <input
+            type="text"
+            name="rue"
+            id="rue"
+            placeholder="rue de la fôret"
+          />
+        </div>
+        <div>
+          <label for="ville">Ville</label>
+          <input type="text" name="ville" id="ville" placeholder="Paris" />
+        </div>
+        <div>
+          <label for="cp">Code postal</label>
+          <input type="text" name="cp" id="cp" />
+        </div>
+        <button type="submit">Enregistré</button>
+      </form>
+    </section>
+  </body>
+</html>
