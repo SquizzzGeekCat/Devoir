@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>liste courses</title>
+  </head>
+  <body onload="showShoppingList()">
+    <header>
+      <h2>Ma liste de courses</h2>
+    </header>
+    <div id="non"></div>
+    <section>
+      <div id="box">
+        <form>
+          <p>
+            <label for="prod">Produit:</label><br />
+            <input id="prod" name="prod" size="30" placeholder="Produit" />
+          </p>
+          <p>
+            <label for="qty">Quantité :</label><br />
+            <input id="qty" name="q" size="30" placeholder="Quantité" />
+          </p>
+        </form>
+        <div>
+          <button id="addItem">Ajouter</button>
+          <button id="updateItem">Modifier</button>
+          <button id="deleteItem">Supprimer</button>
+        </div>
+      </div>
+      <table id="shoppingList">
+        <thead>
+          <tr class="first">
+            <td><b>Produit</b></td>
+            <td><b>Quantité</b></td>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </section>
+    <button id="newList">Nouvelle liste</button>
+  </body>
+</html>
