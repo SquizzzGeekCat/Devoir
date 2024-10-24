@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>create tableau</title>
+  </head>
+  <body>
+    <section>
+      <button type="button" id="createButton">create button</button>
+    </section>
+    <script>
+      const section = document.querySelector("section");
+      const btnCreate = document.getElementById("createButton");
+      btnCreate.addEventListener("click", function () {
+        const inputRow = document.createElement("input");
+        inputRow.type = "number";
+        inputRow.className = "inputRow";
+        const labelRow = document.createElement("label");
+        labelRow.textContent = "Nombre de lignes : ";
+        const inputCol = document.createElement("input");
+        inputCol.type = "number";
+        inputCol.className = "inputCol";
+        const labelCol = document.createElement("label");
+        labelCol.textContent = "Nombre de colonnes : ";
+
+        const divTable = document.createElement("div");
+        divTable.id = "tableDiv";
+
+        const btnTable = document.createElement("button");
+        btnTable.type = "button";
+        btnTable.textContent = "Create Table";
+        btnTable.addEventListener("click", function () {
+          let row = document.querySelector(".inputRow").value;
+          let col = document.querySelector(".inputCol").value;
+
+          if (isNaN(row) || isNaN(col) || row <= 0 || col <= 0) {
+            alert("Veuillez entrer des nombres positifs");
+            return;
+          }
+          const table = document.createElement("table");
+          table.style.border = "1px solid black";
+          for (let i = 0; i < row; i++) {
+            const tr = document.createElement("tr");
+            for (let j = 0; j < col; j++) {
+              const td = document.createElement("td");
+              td.textContent = ` [${i}, ${j}]`;
+              tr.appendChild(td);
+            }
+            table.appendChild(tr);
+          }
+          divTable2.appendChild(table);
+        });
+        const divTable2 = document.createElement("div");
+        divTable.id = "tableDiv2";
+        section.appendChild(divTable);
+        section.appendChild(divTable2);
+        divTable.appendChild(labelRow);
+        divTable.appendChild(inputRow);
+        divTable.appendChild(labelCol);
+        divTable.appendChild(inputCol);
+        divTable.appendChild(btnTable);
+      });
+    </script>
+  </body>
+</html>
