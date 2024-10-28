@@ -1,0 +1,137 @@
+[
+  {
+    "id": 1,
+    "title": " trouve un os dans le parc",
+    "faim": 0,
+    "energie": 0,
+    "bonheur": 10,
+    "temps": 0,
+    "message": " trouve un os dans le parc et gagne 10 points de bonheur."
+  },
+  {
+    "id": 2,
+    "title": " se fait mordre par un chien",
+    "faim": -10,
+    "energie": -5,
+    "bonheur": -10,
+    "temps": 0,
+    "message": " se fait mordre par un chien et perd 10 points de bonheur, 5 points d'énergie et 10 points de faim."
+  },
+  {
+    "id": 3,
+    "title": " joue avec un ballon",
+    "faim": -5,
+    "energie": -10,
+    "bonheur": 10,
+    "temps": 0,
+    "message": " joue avec un ballon et gagne 10 points de bonheur, mais perd 5 points de faim et 10 points d'énergie."
+  },
+  {
+    "id": 4,
+    "title": " mange un fruit",
+    "faim": 10,
+    "energie": 5,
+    "bonheur": 0,
+    "temps": 0,
+    "message": " mange un fruit et gagne 10 points de faim et 5 points d'énergie."
+  },
+  {
+    "id": 5,
+    "title": " fait une sieste",
+    "faim": -5,
+    "energie": 10,
+    "bonheur": 0,
+    "temps": 30,
+    "message": " fait une sieste pendant 30 minutes et gagne 10 points d'énergie, mais perd 5 points de faim."
+  },
+  {
+    "id": 6,
+    "title": " est invité à une fête",
+    "faim": -10,
+    "energie": -10,
+    "bonheur": 20,
+    "temps": 60,
+    "message": " est invité à une fête et gagne 20 points de bonheur, mais perd 10 points de faim et d'énergie pendant 60 minutes."
+  },
+  {
+    "id": 7,
+    "title": " se blesse en jouant",
+    "faim": 0,
+    "energie": -10,
+    "bonheur": -5,
+    "temps": 0,
+    "message": " se blesse en jouant et perd 10 points d'énergie et 5 points de bonheur."
+  },
+  {
+    "id": 8,
+    "title": " reçoit une caresse",
+    "faim": 0,
+    "energie": 0,
+    "bonheur": 10,
+    "temps": 0,
+    "message": " reçoit une caresse et gagne 10 points de bonheur."
+  },
+  {
+    "id": 9,
+    "title": " se réveille en pleine nuit",
+    "faim": -5,
+    "energie": -10,
+    "bonheur": -5,
+    "temps": 0,
+    "message": " se réveille en pleine nuit et perd 5 points de faim, 10 points d'énergie et 5 points de bonheur."
+  },
+  {
+    "id": 10,
+    "title": " découvre un nouveau jouet",
+    "faim": 0,
+    "energie": 0,
+    "bonheur": 20,
+    "temps": 0,
+    "message": " découvre un nouveau jouet et gagne 20 points de bonheur."
+  },
+  {
+    "id": 11,
+    "title": " attrape un rhume",
+    "faim": 0,
+    "energie": -20,
+    "bonheur": -10,
+    "temps": 60,
+    "message": " attrape un rhume et perd 20 points d'énergie et 10 points de bonheur pendant 60 minutes."
+  },
+  {
+    "id": 12,
+    "title": " trouve un trésor",
+    "faim": 0,
+    "energie": 0,
+    "bonheur": 20,
+    "temps": 0,
+    "message": " trouve un trésor et gagne 20 points de bonheur."
+  },
+  {
+    "id": 13,
+    "title": " se fait gronder",
+    "faim": 0,
+    "energie": 0,
+    "bonheur": -10,
+    "temps": 0,
+    "message": " se fait gronder et perd 10 points de bonheur."
+  },
+  {
+    "id": 14,
+    "title": " fait un cauchemar",
+    "faim": 0,
+    "energie": -10,
+    "bonheur": -10,
+    "temps": 0,
+    "message": " fait un cauchemar et perd 10 points d'énergie et 10 points de bonheur."
+  },
+  {
+    "id": 15,
+    "title": " rencontre un ami",
+    "faim": 0,
+    "energie": 0,
+    "bonheur": 10,
+    "temps": 0,
+    "message": " rencontre un ami et gagne 10 points de bonheur."
+  }
+]

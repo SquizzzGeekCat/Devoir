@@ -77,7 +77,6 @@ async function getPost() {
 //affichage des post d'un user
 function drawPost(list) {
   //réinitialise le contenu du main
-  //
   main.innerHTML = "";
   //ne fonction pas audessus
   console.log("liste poste dans drawPost : " + list);
