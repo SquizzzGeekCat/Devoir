@@ -1,0 +1,87 @@
+/* header */
+body {
+  padding: 0;
+  margin: 0;
+}
+header {
+  background-color: blueviolet;
+  color: white;
+  padding: 2em;
+  margin-bottom: 1em;
+}
+header h1 {
+  text-align: center;
+  margin: 0;
+}
+/* main */
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+label,
+textarea {
+  margin-bottom: 0.5em;
+}
+button {
+  background-color: purple;
+  border: solid 0px transparent;
+  border-radius: 15px;
+  color: white;
+  padding: 0.5em;
+  margin-top: 0.5em;
+}
+button:hover {
+  background-color: coral;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  box-shadow: 5px 5px 15px 5px #919191;
+}
+#notes {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-content: space-around;
+  justify-content: space-evenly;
+  background-color: plum;
+  border: 1px solid purple;
+  border-radius: 15px;
+  min-height: 200px;
+  max-height: 80vh;
+  height: fit-content;
+  min-width: 400px;
+  max-width: 90vw;
+  width: fit-content;
+  margin-top: 2em;
+  margin-inline: 1em;
+}
+.note {
+  background-color: white;
+  margin: 0.2em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 15em;
+  max-height: 20vh;
+  justify-content: space-around;
+  border: 1px purple solid;
+  border-radius: 15px;
+}
+.note p {
+  margin: 0;
+  padding: 0.5em;
+  text-align: center;
+}
+.note h2 {
+  margin: 0;
+  padding: 0;
+}
+.note button {
+  margin: 0;
+  margin-bottom: 0.2em;
+}

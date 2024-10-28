@@ -3,21 +3,37 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- react link -->
+    <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <!-- link style -->
     <link rel="stylesheet" href="style.css" />
     <title>Document</title>
   </head>
   <body>
-    <header><h1>Notepad</h1></header>
+    <header>
+      <h1>Notepad</h1>
+    </header>
     <main>
       <section id="addNotes">
-        <form method="post">
-          <label for="">entrée une note :</label>
-          <textarea name="" id="" cols="30" rows="10"></textarea>
-          <button type="submit">enregistré</button>
+        <form method="get">
+          <label for="titre_note">titre de la note</label>
+          <input type="text" name="titre_note" id="titre_note" />
+          <label for="new_note">entrée une note :</label>
+          <textarea
+            name="new_note"
+            id="new_note"
+            cols="30"
+            rows="10"
+          ></textarea>
+          <button type="button" id="btnAddNote">enregistré</button>
         </form>
       </section>
       <section id="notes"></section>
+      <button type="button" id="refreash">Supprimer les notes</button>
     </main>
     <footer></footer>
+    <script src="main.js"></script>
   </body>
 </html>
