@@ -6,7 +6,8 @@
     "energie": 0,
     "bonheur": 10,
     "temps": 0,
-    "message": " trouve un os dans le parc et gagne 10 points de bonheur."
+    "message": " trouve un os dans le parc et gagne 10 points de bonheur.",
+    "levelup": 0
   },
   {
     "id": 2,
@@ -15,7 +16,8 @@
     "energie": -5,
     "bonheur": -10,
     "temps": 0,
-    "message": " se fait mordre par un chien et perd 10 points de bonheur, 5 points d'énergie et 10 points de faim."
+    "message": " se fait mordre par un chien et perd 10 points de bonheur, 5 points d'énergie et 10 points de faim et 1 niveau.",
+    "levelup": -1
   },
   {
     "id": 3,
@@ -24,7 +26,8 @@
     "energie": -10,
     "bonheur": 10,
     "temps": 0,
-    "message": " joue avec un ballon et gagne 10 points de bonheur, mais perd 5 points de faim et 10 points d'énergie."
+    "message": " joue avec un ballon et gagne 10 points de bonheur, mais perd 5 points de faim, 10 points d'énergie mais gagne 1 niveau.",
+    "levelup": 1
   },
   {
     "id": 4,
@@ -33,7 +36,8 @@
     "energie": 5,
     "bonheur": 0,
     "temps": 0,
-    "message": " mange un fruit et gagne 10 points de faim et 5 points d'énergie."
+    "message": " mange un fruit, gagne 10 points de faim, 5 points d'énergie et 1 niveau.",
+    "levelup": 1
   },
   {
     "id": 5,
@@ -42,7 +46,8 @@
     "energie": 10,
     "bonheur": 0,
     "temps": 30,
-    "message": " fait une sieste pendant 30 minutes et gagne 10 points d'énergie, mais perd 5 points de faim."
+    "message": " fait une sieste pendant 30 minutes et gagne 10 points d'énergie, mais perd 5 points de faim.",
+    "levelup": 0
   },
   {
     "id": 6,
@@ -51,7 +56,8 @@
     "energie": -10,
     "bonheur": 20,
     "temps": 60,
-    "message": " est invité à une fête et gagne 20 points de bonheur, mais perd 10 points de faim et d'énergie pendant 60 minutes."
+    "message": " est invité à une fête et gagne 20 points de bonheur, mais perd 10 points de faim et d'énergie pendant 60 minutes. il gagne aussi 3 niveaux.",
+    "levelup": 3
   },
   {
     "id": 7,
@@ -60,7 +66,8 @@
     "energie": -10,
     "bonheur": -5,
     "temps": 0,
-    "message": " se blesse en jouant et perd 10 points d'énergie et 5 points de bonheur."
+    "message": " se blesse en jouant et perd 10 points d'énergie et 5 points de bonheur et perd 1 niveau.",
+    "levelup": -1
   },
   {
     "id": 8,
@@ -69,7 +76,8 @@
     "energie": 0,
     "bonheur": 10,
     "temps": 0,
-    "message": " reçoit une caresse et gagne 10 points de bonheur."
+    "message": " reçoit une caresse et gagne 10 points de bonheur et 2 niveau bonus.",
+    "levelup": 2
   },
   {
     "id": 9,
@@ -78,7 +86,8 @@
     "energie": -10,
     "bonheur": -5,
     "temps": 0,
-    "message": " se réveille en pleine nuit et perd 5 points de faim, 10 points d'énergie et 5 points de bonheur."
+    "message": " se réveille en pleine nuit et perd 5 points de faim, 10 points d'énergie et 5 points de bonheur.",
+    "levelup": 0
   },
   {
     "id": 10,
@@ -87,7 +96,8 @@
     "energie": 0,
     "bonheur": 20,
     "temps": 0,
-    "message": " découvre un nouveau jouet et gagne 20 points de bonheur."
+    "message": " découvre un nouveau jouet et gagne 20 points de bonheur ainsi qu'un niveau.",
+    "levelup": 1
   },
   {
     "id": 11,
@@ -96,7 +106,8 @@
     "energie": -20,
     "bonheur": -10,
     "temps": 60,
-    "message": " attrape un rhume et perd 20 points d'énergie et 10 points de bonheur pendant 60 minutes."
+    "message": " attrape un rhume et perd 20 points d'énergie et 10 points de bonheur pendant 60 minutes ainsi qu'un niveau.",
+    "levelup": -1
   },
   {
     "id": 12,
@@ -105,7 +116,8 @@
     "energie": 0,
     "bonheur": 20,
     "temps": 0,
-    "message": " trouve un trésor et gagne 20 points de bonheur."
+    "message": " trouve un trésor et gagne 20 points de bonheur plus 2 niveaux.",
+    "levelup": 2
   },
   {
     "id": 13,
@@ -114,7 +126,8 @@
     "energie": 0,
     "bonheur": -10,
     "temps": 0,
-    "message": " se fait gronder et perd 10 points de bonheur."
+    "message": " se fait gronder et perd 10 points de bonheur ainsi qu'un niveau",
+    "levelup": -1
   },
   {
     "id": 14,
@@ -123,7 +136,8 @@
     "energie": -10,
     "bonheur": -10,
     "temps": 0,
-    "message": " fait un cauchemar et perd 10 points d'énergie et 10 points de bonheur."
+    "message": " fait un cauchemar et perd 10 points d'énergie et 10 points de bonheur. il a perdu 1 niveau",
+    "levelup": -1
   },
   {
     "id": 15,
@@ -132,6 +146,7 @@
     "energie": 0,
     "bonheur": 10,
     "temps": 0,
-    "message": " rencontre un ami et gagne 10 points de bonheur."
+    "message": " rencontre un ami et gagne 10 points de bonheur et 2 niveaux.",
+    "levelup": 2
   }
 ]

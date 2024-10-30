@@ -65,7 +65,7 @@ class Tamagotchi {
     return `Nom : ${this.nom}\nSexe : ${this.gender}\nNiveau : ${this.level}`;
   }
   status() {
-    return `${this.nom} a pour stats :\n => Faim : ${this.faim}\n => Bonheur : ${this.bonheur}\n => Energie : ${this.energie}`;
+    return `${this.nom} a pour stats :\n => Faim : ${this.faim}\n => Bonheur : ${this.bonheur}\n => Energie : ${this.energie}\n => Niveau : ${this.level}`;
   }
   verifierStats() {
     if (this.faim >= 100) {
@@ -98,7 +98,7 @@ class Tamagotchi {
   //   }
   //TODO: écrire la fonction vieillir qui compte le numbre d'action effectuer et qui déclare la mort au bout de 1000 actions
   vieilir() {}
-  //TODO: ajouter levelUp au fichier json
+
   levelUp() {
     this.level += 1;
   }
@@ -112,6 +112,7 @@ class Tamagotchi {
         this.faim = this.faim + event.faim;
         this.bonheur = this.bonheur + event.bonheur;
         this.energie = this.energie + event.energie;
+        this.level = this.level + event.levelup;
         console.log("Évenement Time !!!" + this.nom + event.message);
         this.verifierStats();
         console.log(this.status());
@@ -121,8 +122,15 @@ class Tamagotchi {
     }
   }
 }
-// TODO: cree une fonction pour lancer le jeu
+//TODO: utiliser la fonction pour stocker dans le local storage
+// fonction pour lancer le jeu
+async function startGame(name, sexe) {
+  await setJsonInLocalStorage();
+  const tamagotchi = new Tamagotchi(name, sexe);
+  console.log(tamagotchi.status());
+}
 
+//function pour recupéré un event du json
 async function getEvent(id) {
   const response = await fetch("../assets/events.json");
   const events = await response.json();
@@ -132,3 +140,39 @@ async function getEvent(id) {
 }
 
 //TODO: faire le front !!!!
+
+//stocker le json dans le localstorage
+function setJsonInLocalStorage() {
+  fetch("../assets/events.json")
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error("Erreur lors de la récupération du fichier JSON");
+      }
+      return response.json();
+    })
+    .then((json) => {
+      localStorage.setItem("event", JSON.stringify(json));
+      console.log("le json a été enregistré avec sucès dans le local storage");
+    })
+    .catch((error) => {
+      console.error(
+        "Erreur lors de l'enregistrement du json dans le local storage",
+        error
+      );
+    });
+}
+//recupéré le json quan on en a besoin
+function getJsonFromLocalStorage() {
+  try {
+    const jsonString = localStorage.getItem("event");
+    const json = JSON.parse(jsonString);
+    console.log("le fichier a été récupéré avec sucèss");
+    return json;
+  } catch (error) {
+    console.error(
+      "Erreur lors de la récupération du json dans le local storage",
+      error
+    );
+    return null;
+  }
+}
